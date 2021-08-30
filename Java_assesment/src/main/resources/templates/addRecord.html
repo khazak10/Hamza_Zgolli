@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:fragment="main-fragment (title, otherStaticResources, header, nav, mainContent, footer)"
+	lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+	rel="stylesheet">
+
+<title>Java_assesment</title>
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/fontawesome.css">
+<link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
+<link rel="stylesheet" href="assets/css/owl.css">
+
+</head>
+
+<body>
+
+
+	<!-- ***** Preloader Start ***** -->
+	<div id="preloader">
+		<div class="jumper">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!-- ***** Preloader End ***** -->
+
+	<!-- Header -->
+	<header class="">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="home"><h2>
+						Java <em>assessment</em>
+					</h2></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link" href="home">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item active"><a class="nav-link"
+							href="/">Records List</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact
+								Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Page Content -->
+	<div class="page-heading products-heading header-text">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-content">
+						<h4>new arrivals</h4>
+						<h2>List Page</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="products">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12"></div>
+				<div class="col-md-12">
+					<br> <br>
+				</div>
+				<div class="col-md-12">
+					<form th:action="@{/validateAddRecord}" th:object="${bookRecord}"
+						method="post">
+						<div>
+							<label for="firstName" class="form-label">First name:</label> <input
+								type="text" class="form-control" th:field="*{firstName}"
+								required />
+							<div class="text-danger" th:if="${#fields.hasErrors('firstName')}">First
+								name must start with the letter 'A'</div>
+							
+							<label for="lastName" class="form-label">Last name:</label> <input
+								type="text" class="form-control" th:field="*{lastName}" required />
+								
+							<div class="text-danger" th:if="${#fields.hasErrors('lastName')}">Last name must start with the letter 'A' </div>
+							
+							<label for="title" class="form-label">Title:</label> <input
+								type="text" class="form-control" th:field="*{title}" required />
+							
+							
+							<label for="isbn" class="form-label">ISBN:</label> <input
+								type="text" class="form-control" th:field="*{isbn}" required />
+							
+							<div>
+							<br>
+							<button class="btn btn-primary" type="submit">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="inner-content"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+	<!-- Additional Scripts -->
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/owl.js"></script>
+	<script src="assets/js/slick.js"></script>
+	<script src="assets/js/isotope.js"></script>
+	<script src="assets/js/accordions.js"></script>
+
+
+	<script language="text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+</html>
