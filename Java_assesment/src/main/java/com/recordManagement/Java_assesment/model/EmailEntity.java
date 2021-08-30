@@ -24,7 +24,7 @@ public class EmailEntity {
 	@Column(name ="message")
 	private String message ; 
 	@Column(name = "sent")
-	private Boolean sent;
+	private boolean sent;
 	public EmailEntity() {
 		
 	}
@@ -35,7 +35,7 @@ public class EmailEntity {
 		this.message =message;
 		this.sent = false;
 	}
-	public Boolean getSent() {
+	public boolean isSent() {
 		return sent;
 	}
 	public void setSent(Boolean sent) {

@@ -1,6 +1,7 @@
 package com.recordManagement.Java_assesment.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -11,12 +12,12 @@ import com.recordManagement.Java_assesment.servicesImpl.SendMailServiceImpl;
 
 @Service
 public class SendMailService implements SendMailServiceImpl {
+	@Value("${email.address}")
+	private String myEmail;
 	@Autowired
 	private EmailRepo emailRepo;
 	@Autowired
 	private JavaMailSender javaMailSender;
-	private String MyEmail = "hamzazgolli@gmail.com";
-
 	public SendMailService(EmailRepo emailRepo) {
 		this.emailRepo = emailRepo;
 	}
@@ -24,13 +25,14 @@ public class SendMailService implements SendMailServiceImpl {
 	@SuppressWarnings("finally")
 	public EmailEntity SendMai(EmailEntity email) {
 		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(MyEmail);
+		message.setTo(myEmail);
 		message.setSubject(email.getSubject());
 		message.setText(email.getMessage());
 		try {
 			javaMailSender.send(message);
+			email.setSent(true);
 		} catch (Exception e) {
-			email.setSent(false);
+			throw e;
 		} finally {
 			return emailRepo.save(email);
 		}
