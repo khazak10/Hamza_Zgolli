@@ -23,6 +23,8 @@ public class EmailEntity {
 	@NotNull
 	@Column(name ="message")
 	private String message ; 
+	@Column(name = "sent")
+	private Boolean sent;
 	public EmailEntity() {
 		
 	}
@@ -31,6 +33,13 @@ public class EmailEntity {
 		this.firstName = firstName;
 		this.subject = subject;
 		this.message =message;
+		this.sent = false;
+	}
+	public Boolean getSent() {
+		return sent;
+	}
+	public void setSent(Boolean sent) {
+		this.sent = sent;
 	}
 	public String getFirstName() {
 		return firstName;
