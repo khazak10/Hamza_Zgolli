@@ -11,4 +11,5 @@
 - HTML
 - CSS
 - Rest API (creating and displaying data)
-**Note that Logs can be found under the folder Log.
+
+** Note that Logs can be found under the folder Log.
