@@ -8,7 +8,7 @@
 - JPA
 - Hibernate 
 - JavaScript
-- HTML
+- HTML(thymeleaf)
 - CSS
 - Rest API (creating and displaying data)
 
