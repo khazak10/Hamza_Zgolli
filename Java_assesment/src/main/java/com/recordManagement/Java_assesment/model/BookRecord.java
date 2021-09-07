@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.type.TrueFalseType;
+
 import com.sun.istack.NotNull;
 
 import lombok.Data;
@@ -16,14 +18,15 @@ import lombok.Data;
 @Data
 public class BookRecord {
 	@Id
+	@Column(unique = true)
 	@GeneratedValue
 	private int id;
 	@NotNull
-	@Pattern(regexp = "[A][A-Za-z]+(\\\\s|$)" )
+	@Pattern(regexp = "[A][A-Za-z]+(\\\\s|$)", message = "This field shoud start with 'A'" )
 	@Column(name = "first_Name")
 	private String firstName;
 	@NotNull
-	@Pattern(regexp = "[A][A-Za-z]+(\\\\s|$)" )
+	@Pattern(regexp = "[A][A-Za-z]+(\\\\s|$)", message = "This field shoud start with 'A'" )
 	@Column(name = "last_Name")
 	private String lastName;
 	@NotNull
