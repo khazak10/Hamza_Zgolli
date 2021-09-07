@@ -10,6 +10,5 @@
 - JavaScript
 - HTML(thymeleaf)
 - CSS
-- Rest API (creating and displaying data)
-
+- Rest API (creating and displaying data) please try the python script "testRestAPI.py" to test the API easily
 ** Note that Logs can be found under the folder Log.
